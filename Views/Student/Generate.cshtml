@@ -1,0 +1,112 @@
+﻿@model Proms.Models.Student
+@{
+    ViewBag.Title = "Generate";
+}
+
+<html>
+
+<body>
+    <hr />
+
+    <h4>Generate ID's</h4>
+    <div id="GFG">
+        <hr />
+        <dl class="dl-horizontal">
+            <dd>
+                <div class="row">
+                    <div class="wrapper">
+                        <img src="~/IDTemp/274475703_663543534791911_5603396074316990317_n.jpg" width="217" height="348" />
+                        <div class="col-lg-4">  @Html.DisplayFor(model => model.StudentID) </div>
+                        <div class="col-lg-5">
+                            @Html.DisplayFor(model => model.Firstname)
+                            @Html.DisplayFor(model => model.MI)
+                            @Html.DisplayFor(model => model.Lastname)
+                            @Html.DisplayFor(model => model.SCourse.Course)
+                        </div>
+                        <div class="field-item img ui-draggable ui-draggable-handle"  style ="height: 20%; width: 15%; border-width: 1px; border-style: solid; border-color: rgb(231, 20, 20); top: 27%; left: 57%;">
+                            <img src="~/Content/upload/Image.jpg"/>
+                        </div>
+                        <div class="col-md-offset-12">
+                            <div class="wrappers">
+                                <img src="~/IDTemp/274194074_371763664501595_2079808804385842808_n.jpg" width="217" height="348" />
+                                <div class="col-md-4"> @Html.DisplayFor(model => model.Parent) </div>
+                                <div class="col-lg-5"> @Html.DisplayFor(model => model.Address)</div>
+                                <div class="col-xs-pull-5">@Html.DisplayFor(model => model.Contact)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dd>
+            
+            @*<dd>
+                <img src="~/Content/upload/Image.jpg" width="70" height="100" style="margin-right"/>
+            </dd>*@
+            @*<dd>
+                @Html.DisplayFor(model => model.StudentID)
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.Firstname)
+                @Html.DisplayFor(model => model.MI)
+                @Html.DisplayFor(model => model.Lastname)
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.SCourse.Course)
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parent)
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.Contact)
+            </dd>*@
+            
+            
+            @* <dt>
+                    @Html.DisplayNameFor(model => model.ImagePic)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ImagePic)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Signature)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Signature)
+                </dd>*@
+
+            @* <dt>
+                    @Html.DisplayNameFor(model => model.SCourse.Course)
+                </dt>*@
+        </dl>
+    </div>
+</body>
+</html>
+<p>
+    @* @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |*@
+    <button onclick="printDiv()" style="margin-left: 10;">Print</button>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<script>
+
+    function printDiv() {
+        var divContents = document.getElementById("GFG").innerHTML;
+        var a = window.open('', '', 'height=400, width=800');
+        a.document.write('<html>');
+        a.document.write('<body > <h3>GSC ID <br>');
+        a.document.write(divContents);
+        a.document.write('</body></html>');
+        a.document.close();
+        a.print();
+    }
+
+</script>

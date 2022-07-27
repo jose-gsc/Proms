@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="42246f17b2f9482c8ee8ea8e35f4e7ca" Name="Diagram1">
+        <EntityTypeShape EntityType="DbIDModel.Employee" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbIDModel.EPosition" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbIDModel.SBY" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbIDModel.SCourse" Width="1.5" PointX="3.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbIDModel.SGrdl" Width="1.5" PointX="3.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbIDModel.Status" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbIDModel.Student" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="DbIDModel.FK_Employee_EPosition" ManuallyRouted="false" />
+        <AssociationConnector Association="DbIDModel.FK_Employee_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="DbIDModel.FK_Student_SBY" ManuallyRouted="false" />
+        <AssociationConnector Association="DbIDModel.FK_Student_SCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="DbIDModel.FK_Student_SGrdl" ManuallyRouted="false" />
+        <AssociationConnector Association="DbIDModel.FK_Student_Status" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

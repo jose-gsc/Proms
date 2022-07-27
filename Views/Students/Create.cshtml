@@ -1,0 +1,223 @@
+﻿@model Proms.Models.Student
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Add", "Student", FormMethod.Post, new {enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Student</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.StudentID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.StudentID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.StudentID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MI, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MI, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MI, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Course, "Course", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Course", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Course, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.GradeLevel, "GradeLevel", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("GradeLevel", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.GradeLevel, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BatchYear, "BatchYear", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("BatchYear", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BatchYear, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Parent, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Parent, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Parent, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Contact, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Status, "Status", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Status", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ImagePic, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" id="id" name="ImageFile" required>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(model => model.Signature, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="wrapper">
+                <img src="https://preview.ibb.co/jnW4Qz/Grumpy_Cat_920x584.jpg" width=400 height=200 />
+                <canvas id="signature-pad" class="signature-pad" width=400 height=200></canvas>
+            </div>
+            </div>
+        </div>
+
+            @*<div class="d-flex justify-content-center mt-2">
+                <div class="container-md">
+                    <div class="card">
+                        <div class="card-header">
+                            <span> Student Signature</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span> Student Signature</span>
+                                    <br />
+                                    <span class="font-italic"> Please Draw in the box provided</span>
+                                    <div id="signature" class="mb-2 mt-2">
+                                        <div id="signature-pad" class="signature-pad">
+
+                                            <div class="signature-pad--body">
+                                                <canvas width="250" style="touch-action: none;" height="380"></canvas>
+                                            </div>
+
+                                            <div>
+                                            </div>
+                                            <button type="button" id="clear-signature" class="btn btn-primary" data-actio="clear"> Clear </button>
+                                            <button type="button" id="undo-signature" class="btn btn-primary" data-actio="clear"> Undo </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            @*   <div class="form-group">
+                @Html.LabelFor(model => model.Signature, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+            *@
+            @*<div class="d-flex justify-content-center mt-2">
+                    <div class="container-md">
+                        <div class="card">
+                            <div class="card-header">
+                                <span> Student Signature</span>
+                            </div>
+                        <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span> Student Signature</span>
+                                        <br />
+                                        <span class="font-italic"> Please Draw in the box provided</span>
+                                        <div id="signature" class="mb-2 mt-2">
+                                            <div id="signature-pad" class="signature-pad">
+
+                                                <div class="signature-pad--body">
+                                                    <canvas width="250" style="touch-action: none;" height="380"></canvas>
+                                                </div>
+
+                                                <div>
+                                                </div>
+                                                <button type="button" id="clear-signature" class="btn btn-primary" data-actio="clear"> Clear </button>
+                                                <button type="button" id="undo-signature" class="btn btn-primary" data-actio="clear"> Undo </button>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            @*    </div>
+                </div>*@
+
+            @* <div class="container-md">
+                    <div class="card">
+                        <div class="card-header">
+                            <span> Student Signature</span>
+                        </div>
+                        <div class="col-md-6>
+                            <span> Student Signature</span>
+                            <br />
+                            <span class="font-italic"> Please Draw in the box provided</span>
+                            <div id="signature" class="mb-2 mt-2">
+                                <div id="signature-pad" class="signature-pad">
+                                    <div class="signature-pad-body">
+                                        <canvas width="250" style="touch-action: none;" height="380">
+                                        </canvas>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <button type="button" id="clear-signature" class="btn btn-primary" data-actio="clear"> Clear </button>
+                            <button type="button" id="undo-signature" class="btn btn-primary" data-actio="clear"> Clear </button>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>

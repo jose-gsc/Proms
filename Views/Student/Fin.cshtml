@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Proms.Models.Student>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<br />
+<h2>List of Student's</h2>
+
+@using (Html.BeginForm("Search", "Student", FormMethod.Get))
+{
+
+    @Html.TextBox("searching")
+    <input type="submit" value="Search" />
+    <h5> Search using Lastname</h5>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Firstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lastname)
+        </th>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.SCourse.Course)
+        </th>
+       
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Firstname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lastname)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.SCourse.Course)
+            </td>
+           
+            <td>
+             @*   @Html.DisplayFor(modelItem => item.Status1.Status1)*@
+
+                <form method="post" asp-action ="UpadateRecord">
+                    <div class="form-group col-md-4">
+                        <input type="hidden" name="id" value="@item.Status1" />
+                        <select class="userselect" asp-items="ViewBag.id" name="usersel">
+                            <option selected>---</option>
+                             
+                        </select>
+                    </div>
+
+                </form>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "FinEdit", new { id = item.id }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+    }
+
+</table>
+@section scripts{
+    <script>
+        $(function () {
+            !$(".userselct").change(function () {
+                $(this).closest('form').submit();
+            })
+        })
+    </script>
+    }
